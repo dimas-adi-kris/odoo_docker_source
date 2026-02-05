@@ -90,9 +90,9 @@ ENV ODOO_RC=/etc/odoo/odoo.conf
 # Clone Odoo source code
 RUN git clone --depth 1 --branch ${ODOO_VERSION} https://github.com/odoo/odoo.git ${ODOO_HOME}
 
+RUN apt-get install --only-upgrade python3-pip
 # Install Odoo Python dependencies from the source requirements.txt
-RUN python3 -m pip install --upgrade pip --break-system-packages \
-    && pip install --break-system-packages -r ${ODOO_HOME}/requirements.txt \
+RUN pip install --break-system-packages -r ${ODOO_HOME}/requirements.txt \
     && pip install --break-system-packages -e ${ODOO_HOME}/
 
 # Create directories for custom modules and configuration
