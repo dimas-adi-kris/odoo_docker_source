@@ -41,6 +41,7 @@ RUN apt-get update && \
         gcc \
         build-essential \
         python3-dev \
+        libpq-dev \
         libldap2-dev \
         libsasl2-dev \
         libxml2-dev \
