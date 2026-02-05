@@ -114,6 +114,7 @@ RUN mkdir -p /mnt/extra-addons /etc/odoo /var/lib/odoo \
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 COPY ./odoo.conf /etc/odoo/
 
 # Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
