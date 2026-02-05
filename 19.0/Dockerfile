@@ -97,7 +97,7 @@ RUN apt-get install --only-upgrade python3-pip
 RUN python3 --version
 # Install Odoo Python dependencies from the source requirements.txt
 # RUN pip install --break-system-packages -r ${ODOO_HOME}/requirements.txt \
-RUN pip install --break-system-packages -r ${ODOO_HOME}/req.txt \
+RUN pip install --break-system-packages --ignore-installed -r ${ODOO_HOME}/req.txt \
     && pip install --break-system-packages -e ${ODOO_HOME}/
 
 # Create directories for custom modules and configuration
