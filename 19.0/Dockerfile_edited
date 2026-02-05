@@ -29,7 +29,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-dev \
     curl \
     postgresql-client \
+    ca-certificates \
+    dirmngr \
+    fonts-noto-cjk \
+    gnupg \
+    libssl-dev \
+    gcc \
+    python3-pip \
+    python3-psycopg2 \
+    xz-utils \
     && rm -rf /var/lib/apt/lists/*
+    
 # 2. Install wkhtmltopdf (Architecture Aware)
 RUN if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
