@@ -135,4 +135,4 @@ RUN chmod +x /entrypoint.sh /usr/local/bin/wait-for-psql.py
 # USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["odoo", "-c", "/etc/odoo/odoo.conf", "-d", "DK_DB"]
+CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
