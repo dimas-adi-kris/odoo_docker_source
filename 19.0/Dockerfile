@@ -89,6 +89,7 @@ ENV ODOO_RC=/etc/odoo/odoo.conf
 
 # Clone Odoo source code
 RUN git clone --depth 1 --branch ${ODOO_VERSION} https://github.com/odoo/odoo.git ${ODOO_HOME}
+RUN apt-get install build-essential
 COPY ./req.txt ${ODOO_HOME}/req.txt
 
 RUN apt-get install --only-upgrade python3-pip
