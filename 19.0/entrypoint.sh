@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-
+chown -R odoo:odoo /var/lib/odoo
 if [ -v PASSWORD_FILE ]; then
     PASSWORD="$(< $PASSWORD_FILE)"
 fi
