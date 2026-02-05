@@ -102,9 +102,9 @@ RUN pip install --break-system-packages --ignore-installed -r ${ODOO_HOME}/req.t
     && pip install --break-system-packages -e ${ODOO_HOME}/
 
 # Create directories for custom modules and configuration
-RUN mkdir -p /mnt/extra-addons /etc/odoo /var/lib/odoo \
+RUN mkdir -p /mnt/extra-addons /mnt/odoo-themes /etc/odoo /var/lib/odoo \
     && useradd -m -d ${ODOO_HOME} -s /bin/bash odoo \
-    && chown -R odoo:odoo /mnt/extra-addons /etc/odoo /var/lib/odoo ${ODOO_HOME}
+    && chown -R odoo:odoo /mnt/extra-addons /mnt/odoo-themes /etc/odoo /var/lib/odoo ${ODOO_HOME}
 
 # RUN curl -o odoo.deb -sSL http://nightly.odoo.com/${ODOO_VERSION}/nightly/deb/odoo_${ODOO_VERSION}.${ODOO_RELEASE}_all.deb \
 #     && echo "${ODOO_SHA} odoo.deb" | sha1sum -c - \
@@ -120,7 +120,7 @@ COPY ./odoo.conf /etc/odoo/
 # RUN chown odoo /etc/odoo/odoo.conf \
 #     && mkdir -p /mnt/extra-addons \
 #     && chown -R odoo /mnt/extra-addons
-VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
+VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/mnt/odoo-themes"]
 
 # Expose Odoo services
 EXPOSE 8069 8071 8072

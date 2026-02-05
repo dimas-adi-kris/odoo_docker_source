@@ -1,2 +1,4 @@
 .idea
 *odoo.conf
+**/custom_addons/*
+**/themes/*
