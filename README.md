@@ -12,3 +12,12 @@ This is originally from [Odoo-docker](https://github.com/odoo/docker) repository
 > Q : Is this community or enterprise?
 >> A : ofc this is community
 
+
+TODO :
+-
+- Testing run docker odoo 17 
+- Testing run docker odoo 18 
+- ~~Testing run docker odoo 19~~
+- Create docummentation to initialize container odoo 17
+- Create docummentation to initialize container odoo 18
+- Create docummentation to initialize container odoo 19
