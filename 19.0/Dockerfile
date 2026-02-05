@@ -39,6 +39,7 @@ RUN apt-get update && \
         python3-xlrd \
         python3-xlwt \
         gcc \
+        build-essential \
         python3-dev \
         libldap2-dev \
         libsasl2-dev \
