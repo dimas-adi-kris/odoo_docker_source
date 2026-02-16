@@ -123,7 +123,7 @@ COPY ./odoo.conf /etc/odoo/
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons", "/mnt/odoo-themes"]
 
 # Expose Odoo services
-EXPOSE 8069 8071 8072
+EXPOSE 8069 8070 8071 8072
 
 # Set the default config file
 # ENV ODOO_RC /etc/odoo/odoo.conf

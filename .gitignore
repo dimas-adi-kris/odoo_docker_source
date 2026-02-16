@@ -2,3 +2,4 @@
 *odoo.conf
 **/custom_addons/*
 **/themes/*
+*.env

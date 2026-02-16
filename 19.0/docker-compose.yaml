@@ -1,5 +1,6 @@
 # version: '3.8'
 services:
+# --- Instance 1: Primary (Port 8069) ---
   web:
     build: .
     depends_on:
@@ -7,9 +8,24 @@ services:
     ports:
       - "8069:8069"
     volumes:
-      - ./custom_addons:/mnt/extra-addons  # Put your custom modules here!
-      - ./themes:/mnt/odoo-themes  # Put your custom modules here!
+      - ./custom_addons:/mnt/extra-addons
+      - ./themes:/mnt/odoo-themes
       - ./odoo_data:/var/lib/odoo
+    command: python3 /opt/odoo/odoo-bin -c /etc/odoo/odoo.conf
+# --- Instance 2: Alternative (Port 8070) ---
+  web_secondary:
+    build: .  # Reuses the exact same build context/cache
+    container_name: odoo_alt
+    restart: unless-stopped
+    ports:
+      - "8070:8070"  # Map external 8070 to internal 8070
+    volumes:
+      # EXACT same volumes so they see the same code changes
+      - ./custom_addons:/mnt/extra-addons
+      - ./themes:/mnt/odoo-themes
+      - ./odoo_data:/var/lib/odoo
+    command: python3 /opt/odoo/odoo-bin -c /etc/odoo/odoo.conf -d DK_DB --http-port=8070
+
   db:
     image: postgres:15
     environment:
